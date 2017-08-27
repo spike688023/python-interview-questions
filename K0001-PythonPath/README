@@ -1,0 +1,25 @@
+
+首先呢，這個章節講 的是 $PATH 跟 PythonPATH  ,這二個環境變數
+
+第一個很常見是os的環境變數
+
+一些跑在系統 的指令，都是去 $PATH跑 的來的路 徑 去找那些執 行 檔，
+
+依序找，看那一個folder先找到，就 先執行 那一個。
+
+第二個是python 在執行 時， 的環境變數，我們拿 單執行 python後，
+
+會進入的交談介面來看，
+
+python2.x
+python3.6
+
+用不同的python版本去執行 ，它的python環境變數也不一樣，
+
+像我folium這個module只有灌在3.x的， 所 以我用python2.x的交談環境中去
+
+import folium，就 會撈不到，這應該 就 是所 謂的python環境，
+
+藉由 python不同版本去執行   pythonPaht.py ，同層的這個python檔案，
+
+就 能看出它的環境路徑 有那些，以及剛安裝 的 library可能放在那些地方。
