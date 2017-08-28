@@ -1,0 +1,153 @@
+
+__main__ 這是用來區分,目前的py檔案是被執行,還是import,
+
+如果是import , __name__會是檔案名,  執行的話, __name__會被設定成 __main__.
+
+
+
+
+單執行 python2.x or  python3.x 會進入,交談模式,
+
+可以藉由dir() 來看預設載入的東西有什麼,
+
+>>> dir
+<built-in function dir>
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__']
+
+
+單執行指令,它會show出,這是module function or class,
+
+只有執行 dir(), 它會跑出,預設載入的東西有什麼,
+
+Build-in Function,启动python解释器，输入dir(__builtins__),可以看到很多python解释器启动后默认加载的属性和函数，这些函数称之为内建函数
+
+
+
+>>> __builtins__
+<module 'builtins' (built-in)>
+>>> dir(__builtins__)
+['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException', 'BufferError', 'BytesWarning', 'DeprecationWarning', 'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FloatingPointError', 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning', 'IndentationError', 'IndexError', 'KeyError', 'KeyboardInterrupt', 'LookupError', 'MemoryError', 'NameError', 'None', 'NotImplemented', 'NotImplementedError', 'OSError', 'OverflowError', 'PendingDeprecationWarning', 'ReferenceError', 'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StopIteration', 'SyntaxError', 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'True', 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError', 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError', 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning', 'ZeroDivisionError', '_', '__build_class__', '__debug__', '__doc__', '__import__', '__name__', '__package__', 'abs', 'all', 'any', 'ascii', 'bin', 'bool', 'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval', 'exec', 'exit', 'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit', 'range', 'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip']
+>>>
+
+這裡show出的東西,有點像bash的一些內建含指令, __doc__ ,這種雙底線的東西,
+
+我都當成是  內建屬性, 但我用type(__doc__) 來看它們,有的是 NoneType,有的是 class,
+
+有的是module如下, 也就是說用dir() 去看某個module的內容, 要知道那些是module,
+
+那些是function, 可以用type() 也可以直接打名字出來看,  
+
+>>> type(__doc__)
+<class 'NoneType'>
+>>> type(__import__)
+<class 'builtin_function_or_method'>
+>>> type(__package__)
+<class 'NoneType'>
+>>> type(__builtins__)
+<class 'module'>
+>>> type(__debug__)
+<class 'bool'>
+>>> type(bytes)
+<class 'type'>
+
+
+>>> dir
+<built-in function dir>
+>>> vars
+<built-in function vars>
+>>> zip
+<class 'zip'>
+>>> pow
+<built-in function pow>
+>>> dic
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'dic' is not defined
+>>> dict
+<class 'dict'>
+
+
+
+
+這裡我如果載入新的module json, datetime , 來看看會出現什麼,
+
+如下,可以看出, dir是function, 而 __builtins__是預載的module,
+
+我們之後載入的 json datetime,會在後面出現,
+
+>>> import json
+>>> import datetime
+>>> dir
+<built-in function dir>
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'datetime', 'json']
+>>> type(__builtins__)
+<class 'module'>
+>>> type(datetime)
+<class 'module'>
+
+
+
+
+
+
+藉由dir() 我們可以對 module一層層的往下看, __ __ 夾住的, 會給我們一些提示,
+
+像是 __call__  代表這個物件是可以直接呼叫的,像這樣  datetime.time() , 而 __class__ 代表這是個class的物件,
+
+datetime.time.__ge__ 是可以對這物件做的操作, __ge__ 是個descriptor , 代表這物件,可以拿來做比大小.
+
+>>> dir(datetime.time.__ge__)
+['__call__', '__class__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__name__', '__ne__', '__new__', '__objclass__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+
+>>> type(datetime.time.__ge__)
+<class 'wrapper_descriptor'>
+
+
+由 >>> help(datetime.time) 可以看這個class怎麼用,
+
+ |  __eq__(...)
+ |      x.__eq__(y) <==> x==y
+
+ |  __ge__(...)
+ |      x.__ge__(y) <==> x>=y
+
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |
+ |  __new__ = <built-in method __new__ of type object>
+ |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+ |
+ |  max = datetime.time(23, 59, 59, 999999)
+ |
+ |  min = datetime.time(0, 0)
+ |
+ |  resolution = datetime.timedelta(0, 0, 1)
+
+以及物件怎麼建,
+>>> nine = datetime.time(9, 0)
+>>> ten = datetime.time(10, 0)
+
+
+>>> nine > ten
+False
+>>> nine >= ten
+False
+>>> nine < ten
+
+
+真的是這樣用, 這樣一個新的module, 我只要用dir() type() help() ,就能清楚它的用法了.
+
+
+
+這個__builtins__代表, 它是用dict 來存所有的class.
+>>> type(datetime.__builtins__)
+<class 'dict'>
+>>> datetime.__builtins__
+{'bytearray': <class 'bytearray'>, 'IndexError': <class 'IndexError'>, 'all': <built-in function all>, 'help': Type help() for interactive help, or help(object) for help about object., 'vars': <built-in function vars>, 'SyntaxError': <class 'SyntaxError'>, 'UnicodeDecodeError': <class 'UnicodeDecodeError'>, 'memoryview': <class 'memoryview'>, 'isinstance': <built-in function isinstance>, '__build_class__': <built-in function __build_class__>, 'copyright': Copyright (c) 2001-2012 Python Software Foundation.
+
+
+
+reference: 
+https://docs.python.org/3/tutorial/modules.html#packages
