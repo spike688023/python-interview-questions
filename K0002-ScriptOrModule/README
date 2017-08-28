@@ -148,6 +148,14 @@ False
 {'bytearray': <class 'bytearray'>, 'IndexError': <class 'IndexError'>, 'all': <built-in function all>, 'help': Type help() for interactive help, or help(object) for help about object., 'vars': <built-in function vars>, 'SyntaxError': <class 'SyntaxError'>, 'UnicodeDecodeError': <class 'UnicodeDecodeError'>, 'memoryview': <class 'memoryview'>, 'isinstance': <built-in function isinstance>, '__build_class__': <built-in function __build_class__>, 'copyright': Copyright (c) 2001-2012 Python Software Foundation.
 
 
+最簡單, 要知道怎麼使用, 看官網:
+https://docs.python.org/3/library/datetime.html
+
+
+
+
+
 
 reference: 
 https://docs.python.org/3/tutorial/modules.html#packages
+https://docs.python.org/3/library
