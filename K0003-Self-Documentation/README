@@ -1,0 +1,24 @@
+
+Docstrings and comments 不是只有 符號上的差別。
+
+
+1. Docstring 可以多行 ，  comments  只能有一行。
+2. Docstring 會被放進code裡面，像是 dir() help() 會用到，
+   comments 的話 ，是會被忽略的。
+
+
+這裡做了一些實例，
+
+執 行  python3.x進入交談介面， 此介面是個名為 __main__ 的module在控制的，
+
+用  dir(__name__) 可以知道，目前module的狀態，
+
+也可以幫它加一些狀態， 像是 定義 一個func   , 多定義 一個 list = [1, 2, 3],
+
+或是 __doc__ = "fdsfasf" , 這個變數是用來解釋， 這個module用途的，
+
+我們在這裡定義 的所 有東西，都會變成，  __main__ 這個module的一部份，
+
+這有點像是， 我們進linux ， 它其實是用 bash 在控制的，是個bash的環 境，
+
+我們如果有定義 變數，  一定會被存起來。

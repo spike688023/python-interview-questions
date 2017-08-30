@@ -1,0 +1,30 @@
+
+這篇好整 理多了， 就介紹二個func 的用法，range()  enumerate(),
+
+range() 就三種 用法：
+
+1 Param : Zero Based
+2 Param : Ranged
+3 Param : Stepped Range
+
+第一種 是說 只傳入一個變數， 輸出從 0開始
+
+第二種   二個變數， 用來抓出範圍 像是 3:6  ，就 是輸出 3, 4,5 不含最多一個
+        可以這麼想  6 - 3 = 3 所 以只會跑出三個值， 然後 值從 3 開始。
+
+第三種   三個變數， 但是有弟增的值，  3:9:2 為例， 3 , 5 , 7 這裡一樣，
+        只能取後 面那個的 n-1 。
+
+
+enumerate 的型態 ，也一樣三種
+
+for ref in enumerate(["dog", "cat", "bird"])
+會自動編 號 由0開始
+
+
+for ss, ref in enumerate(["dog", "cat", "bird"])
+這個的話 ，只是用一個變數  ss 來接 編號的數字。
+
+
+for ss, ref in enumerate(["dog", "cat", "bird"], 1)
+這裡的話 是多一個變數，用來控制  起始的變數是那一個開始。

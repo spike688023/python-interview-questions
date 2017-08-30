@@ -1,0 +1,14 @@
+這裡要講 的是，python沒有做型態的確認
+
+typeless，
+
+也就 會產生 所 謂後 期邦定的問題 ，
+
+“Python只有在需要时才去寻找变量的值”
+
+
+
+
+
+Reference:
+http://www.codexiu.cn/python/blog/941/

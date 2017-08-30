@@ -1,0 +1,12 @@
+這裡講 slicing
+
+主要就 是取變數，跟抓區塊，
+
+基本上python取值 ，可以用positive or negative index  來抓變數
+
+[0 , 1 , 2 , 3 , 4 , ...]
+[.. , -n , -n+1 , -n+2 , ...]
+
+如此
+
+還有的就 是抓範圍， 只要記得 一個原則 upper bound不算在內。
