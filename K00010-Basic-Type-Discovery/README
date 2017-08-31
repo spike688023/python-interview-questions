@@ -1,0 +1,8 @@
+
+# Python中，用來知道物件屬性  , 這堂就 這樣
+>>> type([])
+<class 'list'>
+>>> type(())
+<class 'tuple'>
+>>> type({})
+<class 'dict'>

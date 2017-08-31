@@ -1,0 +1,37 @@
+"""
+沒想到最後 聴 懂是用一個印度人的影片
+https://www.youtube.com/watch?v=aCDrcaYRU0I
+
+第一個function  employeeNew ，是實驗用來知道，
+
+python is call by reference, 因為外層的list，
+
+在經過func後 的輸出，跟直接印出list，二個是長一樣的，所以是reference
+
+
+第二個func employeeValue 感覺只是  要讓你知道變數的區域，
+
+它會找最近的，所以這個輸出的值跟另一個不一樣。
+
+"""
+
+employee = {"Alex": 1500 , "Tom":1600 , "Ellis":1700}
+def employeeNew(employee):
+    New = {"Chia":1800, "Jim":1900 }
+    employee.update(New)
+    return employee
+
+
+def employeeValue(employee):
+    employee = {"Chia":1800, "Jim":1900 }
+    employee.update(employee)
+    return employee
+
+print("function employeeNew", employeeNew(employee))
+print("outside employee",employee)
+print("function employeeValue", employeeValue(employee))
+
+# 以下三行 要講的就 只有  python 是typeless
+eggs = 12.34
+eggs = "string"
+eggs = [1,2,3,4]
