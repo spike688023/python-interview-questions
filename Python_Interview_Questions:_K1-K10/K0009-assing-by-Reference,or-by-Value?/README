@@ -1,4 +1,23 @@
 """
+哈，下面印度人的其實，也是沒講 的清楚 ，
+
+因為主要是內部變數的關係，
+
+https://github.com/taizilongxu/interview_python#1-python%E7%9A%84%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92
+
+這個就 講 的很清楚， 重點只有一個，
+
+那就 是傳入的是可變動的還是， 不可變動的，
+
+這裡呢 ，  要用記的，但很簡單，只要記可變動的， 就二個list 跟dict，
+
+是call by reference ，其它都是value ，  除非像印度人用的例子，
+
+內部用其它的回傳。
+
+
+
+
 沒想到最後 聴 懂是用一個印度人的影片
 https://www.youtube.com/watch?v=aCDrcaYRU0I
 
